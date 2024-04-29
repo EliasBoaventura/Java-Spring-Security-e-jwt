@@ -44,14 +44,17 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/users").permitAll()
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
                         .requestMatchers(HttpMethod.POST,
-                        "/protegido/teste").hasAuthority("SCOPE_BASIC")
+                                "/protegido/teste")
+                        .hasAuthority("SCOPE_BASIC")
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         conf -> conf.jwt(
-                                jwt -> jwt.decoder(jwtDecoder())));
+                                jwt -> jwt.decoder(jwtDecoder())))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         ;
         return http.build();
     }
