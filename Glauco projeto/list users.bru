@@ -1,0 +1,15 @@
+meta {
+  name: list users
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:8080/users
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJteWJhY2tlbmQiLCJzdWIiOiI4ZGM4NjZjZS1kMTJhLTQ4OTEtYmVhYi02MzU0YTQzMWI0NTMiLCJleHAiOjE3MTQwNjEyMTcsImlhdCI6MTcxNDAyNTIxNywic2NvcGUiOiJTQ09QRV9BRE1JTiJ9.FE5BhIqhwpGdwXJQRVYCPSm-hpqLUJhjMAiMd7Km30jL-SKjkyiOKtl_ldm-twMVQXfVNooaWztV9W1Up82nyztLS97VoSETaqG4Sy8Zr5D0i_ANtMNG6DMX-DeJuSPx5s5Pk3GXzscBwf0OrqbQrlS5SDFGcJHsSdpF2hPrmCSi1CepCIIUtc03Bmdpds3LWFZ-vJ-CDgrT7tFdI8Vy_iYSp48Uo6vT9cOzwY0--QL7RyVNGf7eJLiGFJ4gc1GM3o5rDzw_lWQ7RqnKwAaIrn49Fev2FjrkH4T2afExbeNFIDo62yjJAa56FQGrb_SI3nKPF2NlmhSd-IjyvcDR4w
+}

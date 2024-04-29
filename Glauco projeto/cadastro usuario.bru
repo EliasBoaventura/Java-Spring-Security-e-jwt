@@ -1,0 +1,22 @@
+meta {
+  name: cadastro usuario
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "adminasda",
+      "password": "123sdasd"
+  }
+}
+
+vars:post-response {
+  accessToken: res.body.accessToken
+}
