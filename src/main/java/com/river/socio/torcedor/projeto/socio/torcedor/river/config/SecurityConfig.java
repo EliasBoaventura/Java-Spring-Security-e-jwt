@@ -51,8 +51,7 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         conf -> conf.jwt(
-                                jwt -> jwt.decoder(jwtDecoder())))
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                                jwt -> jwt.decoder(jwtDecoder())));
         ;
         return http.build();
     }
