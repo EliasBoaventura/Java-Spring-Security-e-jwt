@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginRequest;
@@ -20,8 +21,9 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "user_id")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(name = "user_id", columnDefinition = "BINARY(16)")
     private UUID userId;
 
     @Column(unique = true)

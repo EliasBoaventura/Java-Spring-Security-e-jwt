@@ -30,22 +30,26 @@ public class AdminUserConfig implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        
+
         var roleAdmin = roleRepository.findByName(Role.Values.ADMIN.name());
         System.out.println(roleAdmin);
 
-        var userAdmin = userRepository.findByUsername("ana");
+        if (roleAdmin != null) {
+            var userAdmin = userRepository.findByUsername("ana");
 
-        userAdmin.ifPresentOrElse(
-                user -> {
-                    System.out.println("admin ja existe");
-                },
-                () -> {
-                    var user = new User();
-                    user.setUsername("ana");
-                    user.setPassword(passwordEncoder.encode("1234"));
-                    user.setRoles(roleAdmin);
-                    userRepository.save(user);
-                });
+            userAdmin.ifPresentOrElse(
+                    user -> {
+                        System.out.println("admin já existe");
+                    },
+                    () -> {
+                        var user = new User();
+                        user.setUsername("ana");
+                        user.setPassword(passwordEncoder.encode("1234"));
+                        user.setRoles(roleAdmin);
+                        userRepository.save(user);
+                    });
+        } else {
+            System.out.println("A role de admin não foi encontrada.");
+        }
     }
 }
