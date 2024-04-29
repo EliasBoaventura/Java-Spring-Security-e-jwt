@@ -43,13 +43,11 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/paginaprincipal").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        // .requestMatchers(HttpMethod.POST,
-                        // "/protegido/teste").hasAuthority("SCOPE_BASIC")
-                        // .anyRequest().authenticated()
-                        .requestMatchers(HttpMethod.GET, "/protegido/teste").permitAll())
+                        .requestMatchers(HttpMethod.POST,
+                        "/protegido/teste").hasAuthority("SCOPE_BASIC")
+                        .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         conf -> conf.jwt(
