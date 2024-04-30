@@ -26,11 +26,11 @@ public class TokenController {
 
     private final JwtEncoder jwtEncoder;
     private final UserRepository userRepository;
-    private BCryptPasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     public TokenController(JwtEncoder jwtEncoder,
             UserRepository userRepository,
-            BCryptPasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder) {
         this.jwtEncoder = jwtEncoder;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
