@@ -1,12 +1,12 @@
-# services:
-#   mysql:
-#     image: mysql
-#     ports:
-#       - "3307:3306"
-#     expose:
-#       - "3307"
-#     environment:
-#       - MYSQL_USER=admin
-#       - MYSQL_PASSWORD=123
-#       - MYSQL_DATABASE=mydb
-#       - MYSQL_ROOT_PASSWORD=123
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "54789"
+    expose:
+      - "54789"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=qefhmOCmoTKYiKxLGPZjIbvXFbgXMudu
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=qefhmOCmoTKYiKxLGPZjIbvXFbgXMudu

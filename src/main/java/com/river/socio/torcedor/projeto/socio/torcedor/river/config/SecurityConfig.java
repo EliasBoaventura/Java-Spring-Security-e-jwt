@@ -40,20 +40,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/users").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.POST,
-                                "/protegido/teste")
-                        .hasAuthority("SCOPE_BASIC")
-                        .anyRequest().authenticated())
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(
+                        auth -> auth
+                                .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/users").permitAll()
+                                .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         conf -> conf.jwt(
-                                jwt -> jwt.decoder(jwtDecoder())))
-        ;
+                                jwt -> jwt.decoder(jwtDecoder())));
         return http.build();
     }
 
