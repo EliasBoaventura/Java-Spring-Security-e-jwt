@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginRequest;
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginResponse;
-import com.river.socio.torcedor.projeto.socio.torcedor.river.entities.Role;
 import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepository;
 
 import java.time.Instant;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "login")
