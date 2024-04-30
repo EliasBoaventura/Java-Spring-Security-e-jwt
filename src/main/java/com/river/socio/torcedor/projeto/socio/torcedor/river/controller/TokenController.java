@@ -37,8 +37,7 @@ public class TokenController {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 
         var user = userRepository.findByUsername(loginRequest.username());
