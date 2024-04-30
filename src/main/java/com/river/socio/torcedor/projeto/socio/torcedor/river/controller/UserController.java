@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @Transactional
-    @PostMapping(value = "/users")
+    @PostMapping(value = "users/criar")
     public ResponseEntity<Void> newUser(@RequestBody CreateUserDto dto) {
 
         var basicRole = roleRepository.findByName(Role.Values.BASIC.name());
@@ -59,7 +59,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/users/listar")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<List<User>> listUsers() {
         var users = userRepository.findAll();

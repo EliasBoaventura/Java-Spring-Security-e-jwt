@@ -24,7 +24,7 @@ public class teste {
         return "cheguei aqui sou  um admin";
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public String paginaTeste(Model model) {
         return "teste"; 
     }
