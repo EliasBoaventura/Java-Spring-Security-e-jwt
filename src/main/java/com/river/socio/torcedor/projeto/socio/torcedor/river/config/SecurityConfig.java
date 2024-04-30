@@ -40,12 +40,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf -> csrf.disable())
+        http
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/users").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/protegido").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/users").permitAll()
+                                .requestMatchers("/protegido").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(
