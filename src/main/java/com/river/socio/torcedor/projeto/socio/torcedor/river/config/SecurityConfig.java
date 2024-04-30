@@ -43,9 +43,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers("/login").permitAll()
-                                .requestMatchers("/users").permitAll()
-                                .requestMatchers("/protegido").permitAll()
+                                .requestMatchers("/login/**", "/users/**", "/protegido").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(

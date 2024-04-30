@@ -22,7 +22,7 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 import java.util.List;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping(value = "users")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @Transactional
-    @PostMapping("criar")
+    @PostMapping(value = "criar")
     public ResponseEntity<Void> newUser(@RequestBody CreateUserDto dto) {
 
         var basicRole = roleRepository.findByName(Role.Values.BASIC.name());
@@ -61,7 +61,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("listar")
+    @GetMapping(value = "listar")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<List<User>> listUsers() {
         var users = userRepository.findAll();
