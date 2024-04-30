@@ -21,7 +21,7 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 import java.time.Instant;
 import java.util.stream.Collectors;
 
-@RestController
+@RestController("login")
 public class TokenController {
 
     private final JwtEncoder jwtEncoder;
@@ -36,7 +36,7 @@ public class TokenController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping(value = "login")
+    @PostMapping()
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 
         var user = userRepository.findByUsername(loginRequest.username());
