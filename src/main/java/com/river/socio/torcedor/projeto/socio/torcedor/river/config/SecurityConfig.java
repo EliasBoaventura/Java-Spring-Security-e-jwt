@@ -43,7 +43,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/login").permitAll()
                                 .requestMatchers("/users/**").permitAll()
                                 .requestMatchers("/protegido").permitAll() // Permite acesso sem
                                 .requestMatchers("/").permitAll() // Permite acesso à página inicial
