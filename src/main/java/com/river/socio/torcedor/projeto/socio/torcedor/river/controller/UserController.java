@@ -22,7 +22,7 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "users")
+@RequestMapping(value = "/users")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -38,11 +38,11 @@ public class UserController {
     }
 
     @Transactional
-    @PostMapping(value = "criar")
+    @PostMapping(value = "/criar")
     public ResponseEntity<Void> newUser(@RequestBody CreateUserDto dto) {
 
         var basicRole = roleRepository.findByName(Role.Values.BASIC.name());
-        if (basicRole == null) { // Verifica se a role básica não foi encontrada
+        if (basicRole == null) { 
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Basic role not found");
         }
 
@@ -61,7 +61,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = "listar")
+    @GetMapping(value = "/listar")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<List<User>> listUsers() {
         var users = userRepository.findAll();

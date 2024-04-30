@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.qos.logback.core.model.Model;
 
 @RestController
-@RequestMapping(value = "protegido")
+@RequestMapping(value = "/protegido")
 public class teste {
     
-    @GetMapping(value = "usuario")
+    @GetMapping(value = "/usuario")
     @PreAuthorize("hasAuthority('SCOPE_BASIC')")
     public String paginaProtegida() {
         return "cheguei aqui sou um usuario";
     }
 
-    @GetMapping(value = "admin")
+    @GetMapping(value = "/admin")
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public String paginaProtegidaAdmin() {
         return "cheguei aqui sou  um admin";

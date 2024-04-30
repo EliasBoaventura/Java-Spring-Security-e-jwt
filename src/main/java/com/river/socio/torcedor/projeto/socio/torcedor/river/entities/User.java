@@ -5,13 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginRequest;
-
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_users")
