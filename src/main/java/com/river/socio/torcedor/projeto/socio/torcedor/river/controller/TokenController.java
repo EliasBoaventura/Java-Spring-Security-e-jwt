@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginRequest;
 import com.river.socio.torcedor.projeto.socio.torcedor.river.dto.LoginResponse;
@@ -21,7 +22,8 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 import java.time.Instant;
 import java.util.stream.Collectors;
 
-@RestController("login")
+@RestController
+@RequestMapping("login")
 public class TokenController {
 
     private final JwtEncoder jwtEncoder;

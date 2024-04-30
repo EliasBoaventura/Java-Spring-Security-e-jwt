@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -20,7 +21,8 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 
 import java.util.List;
 
-@RestController("users")
+@RestController
+@RequestMapping("users")
 public class UserController {
 
     private final UserRepository userRepository;
