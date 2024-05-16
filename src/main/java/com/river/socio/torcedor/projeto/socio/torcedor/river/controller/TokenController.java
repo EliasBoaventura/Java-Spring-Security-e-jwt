@@ -45,7 +45,7 @@ public class TokenController {
         }
 
         var now = Instant.now();
-        var expiresIn = 36000L;
+        var expiresIn = 5L;
 
         String scope = user.get().getRoles().getName();
 
