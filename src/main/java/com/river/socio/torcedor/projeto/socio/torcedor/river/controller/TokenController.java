@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.river.socio.torcedor.projeto.socio.torcedor.river.repository.UserRepo
 
 import java.time.Instant;
 
+@CrossOrigin("https://java-spring-security-e-jwt-production.up.railway.app")
 @RestController
 @RequestMapping("/login")
 public class TokenController {
