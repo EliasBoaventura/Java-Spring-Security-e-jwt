@@ -40,7 +40,6 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.disable())
                 .authorizeHttpRequests(
                         auth -> auth
                                 .requestMatchers("/login/logar").permitAll()
@@ -72,13 +71,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("java-spring-security-e-jwt-production.up.railway.app");
-        // configuration.addAllowedMethod("*");
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH"));
-        configuration.addAllowedHeader("*");
-        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(Arrays.asList("https://java-spring-security-e-jwt-production.up.railway.app"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
